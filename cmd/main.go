@@ -1,13 +1,12 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
 	"github.com/rigoncs/TodoList/conf"
+	"github.com/rigoncs/TodoList/interfaces/adapter/initialize"
 )
 
 func main() {
 	conf.InitConfig()
-	tmp, _ := json.Marshal(conf.Conf)
-	fmt.Println(string(tmp))
+	r := initialize.NewRouter()
+	_ = r.Run(conf.Conf.Server.Port)
 }
