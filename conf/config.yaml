@@ -1,0 +1,20 @@
+server:
+  port: :3000
+  version: 1.0
+  jwtSecret: "todolist"
+
+mysql:
+  driverName: mysql
+  host: 127.0.0.1
+  port: 3306
+  database: todolist
+  username: todolist
+  password: todolist
+  charset: utf8mb4
+
+redis:
+  name: 4
+  host: 127.0.0.1
+  port: 6379
+  password: 123456
+  network: "tcp"
