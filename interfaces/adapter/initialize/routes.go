@@ -2,7 +2,7 @@ package initialize
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/rigoncs/TodoList/interfaces/controller"
+	api "github.com/rigoncs/TodoList/interfaces/controller"
 	"net/http"
 )
 
@@ -15,8 +15,8 @@ func NewRouter() *gin.Engine {
 		})
 
 		// 用户操作部分
-		v1.POST("user/login", controller.UserLoginHandler())
-		v1.POST("user/register", controller.UserRegisterHandler())
+		v1.POST("user/login", api.UserLoginHandler())
+		v1.POST("user/register", api.UserRegisterHandler())
 		// 备忘录操作部分
 	}
 	return r

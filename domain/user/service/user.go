@@ -10,6 +10,7 @@ import (
 type UserDomain interface {
 	CreateUser(ctx context.Context, user *entity.User) (*entity.User, error)
 	FindUserByName(ctx context.Context, name string) (*entity.User, error)
+	GetUserDetail(ctx context.Context, id uint) (*entity.User, error)
 	CheckUserPwd(ctx context.Context, user *entity.User, src string) error
 }
 
@@ -39,6 +40,10 @@ func (u *UserDomainImpl) CreateUser(ctx context.Context, user *entity.User) (*en
 
 func (u *UserDomainImpl) FindUserByName(ctx context.Context, name string) (*entity.User, error) {
 	return u.repo.GetUserByName(ctx, name)
+}
+
+func (u *UserDomainImpl) GetUserDetail(ctx context.Context, id uint) (*entity.User, error) {
+	return u.repo.GetUserById(ctx, uint64(id))
 }
 
 func (u *UserDomainImpl) CheckUserPwd(ctx context.Context, user *entity.User, src string) error {
