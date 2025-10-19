@@ -26,3 +26,9 @@ func (u *User) IsActive() bool {
 	}
 	return false
 }
+
+func (u *User) SetPwd(pwd []byte) error {
+	u.Password = string(pwd)
+	u.UpdatedAt = time.Now()
+	return nil
+}
